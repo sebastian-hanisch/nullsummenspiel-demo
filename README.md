@@ -1,7 +1,6 @@
 # Nullsummenspiele: Zufall mit Absicht – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-nullsummenspiel-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-nullsummenspiel-demo.streamlit.app/)**
 
 Konzepte-Demo für die Website „Sebastian Hanisch – Operations Research und Machine Learning“, Teil der Linie zu Verhandlung, Auktion, Vertrag und Kontrolle. Ein **Verlader** schickt eine Sendung über eine von n Routen, ein **Kontrolleur** prüft eine Route:
 Wird die Route der Sendung geprüft, ist sie verloren, sonst kommt ihr Wert an (Anteil der Ladung). Wo es keinen Sattelpunkt gibt, wird eine feste Regel von einem mitdenkenden Gegner ausgenutzt. Die Demo rechnet den Wert des Spiels und die optimalen gemischten Strategien
@@ -307,4 +306,4 @@ Gebaut mit Streamlit, Plotly, NumPy, SciPy und fpdf2.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Regeln setzen, verhandeln, kontrollieren](https://sebastianhanisch.net/konzepte-verhandeln.html).
