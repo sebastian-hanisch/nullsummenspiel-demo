@@ -557,7 +557,7 @@ def verdict_e2(lookup: dict, capture: dict, profile_label: str, rounds: int) -> 
     first = {n: capture[str(n)] for n in (2, 8)}
     text = (f"{profile_label}, {rounds} Runden, Mittel über 4 Zufalls-Seeds, Wert des Spiels {de(value)}: Eine **Rotation** liefert gegen den Folgezähler nur **{de(fol)}** je Sendung (Gleichstand kleinster Index: er fängt ab Runde {first[2]} bei zwei, ab Runde {first[8]} bei acht gleichen Routen jede ab), "
             f"gegen den Häufigkeitszähler mit Gleichstand „kleinster Index“ {de(low)}, mit zufälligem Gleichstand **{de(rnd)}**. "
-            f"Ob ein Zähler ein Muster ausnutzt, hängt am Zählertyp und an der Gleichstandsregel. Gegen Zufall im Gleichgewicht liegen alle vier Kontrolleure (die Zähler mit beiden Gleichstandsregeln) zwischen {de(min(iid))} und {de(max(iid))}.")
+            f"Ob und wie stark ein Zähler ein Muster ausnutzt, hängt vor allem am Zählertyp; die Gleichstandsregel bestimmt beim Häufigkeitszähler nur, wie weit er unter dem Spielwert bleibt. Gegen Zufall im Gleichgewicht liegen alle vier Kontrolleure (die Zähler mit beiden Gleichstandsregeln) zwischen {de(min(iid))} und {de(max(iid))}.")
     return "info", text
 
 

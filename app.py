@@ -287,7 +287,7 @@ with tabs[1]:
     st.dataframe([{"Aktion": f"{n} (Verlader)", "Durchschnitt nach T Runden": pct(p, 1), "optimal (LP)": pct(q, 1)} for n, p, q in zip(names_rows, run.avg_x, a.sol.x)]
                  + [{"Aktion": f"{n} (Kontrolleur)", "Durchschnitt nach T Runden": pct(p, 1), "optimal (LP)": pct(q, 1)} for n, p, q in zip(names_cols, run.avg_y, a.sol.y)], hide_index=True, width="stretch")
     st.caption("Bei mehreren optimalen Strategien kann der Durchschnitt zu einer anderen optimalen Strategie laufen als die in der Spalte „optimal (LP)“ gezeigte.")
-    st.subheader("🔬 Experiment 3: Der Durchschnitt konvergiert, die letzte Iteration nicht")
+    st.subheader("🔬 Experiment 3: Der Durchschnitt konvergiert, die letzte Iteration meist nicht")
     if grid is not None:
         summary = ev.e3_summary(grid)
         start_sum = ev.e3_start_summary(grid)
@@ -296,7 +296,7 @@ with tabs[1]:
         st.plotly_chart(build_e3(summary), width="stretch", key="e3_chart")
         st.dataframe([{"Verfahren": C.LEARN_METHODS[m], **{f"Durchschnitt, T = {T}": de(s["avg"][i], 4) for i, T in enumerate(h)}, **{f"letzte Iteration, T = {T}": de(s["last"][i], 3) for i, T in enumerate(h)},
                        "Steigung (Log-Log, T = 100 bis 10 000)": de(s["slope"], 2)} for m, s in summary.items()], hide_index=True, width="stretch")
-        st.markdown("**Start in der Gleichverteilung gegen Zufallsstart** (Stein-Schere-Papier und vier gleiche Routen, T = 10 000, Mittel über 4 Zufalls-Seeds)")
+        st.markdown("**Start in der Gleichverteilung gegen Zufallsstart** (Stein-Schere-Papier und vier gleiche Routen, T = 10 000, Mittel über 4 Zufalls-Seeds; die letzte Iteration von Regret Matching mit Zufallsstart ist plattformabhängig, belastbar ist nur die Größenordnung)")
         st.dataframe([{"Spiel": {"rps": "Stein-Schere-Papier", "four": "vier gleiche Routen"}[game], "Verfahren": C.LEARN_METHODS[m], "Start": C.STARTS[st_],
                        "Ausnutzbarkeit Durchschnitt": de(start_sum[(game, m, st_)]["avg"], 4), "letzte Iteration (Mittel)": de(start_sum[(game, m, st_)]["last"], 3)}
                       for game in ("rps", "four") for m in C.LEARN_METHODS for st_ in ("uniform", "random")], hide_index=True, width="stretch")
@@ -306,7 +306,7 @@ with tabs[1]:
 
 with tabs[2]:
     st.caption("Wirkt: Spiel und Aktionen n dieses Reiters sowie der Zufalls-Seed des Spiels (Zufallsspiel und Nullsumme); die Aufzählung rechnet bis n = 8.")
-    st.markdown("**Nullsumme hat einen Wert und ein Gleichgewicht, allgemeine Spiele mehrere, und Lernen findet sie nicht von selbst (gemessen am Shapley-Beispiel unten).** Hier A (Zeilenspieler) und B (Spaltenspieler) getrennt; Nullsumme ist der Sonderfall B = 1 − A.")
+    st.markdown("**Nullsumme hat einen eindeutigen Wert und in Zufallsspielen fast sicher ein Gleichgewicht, allgemeine Spiele haben im Mittel mehrere, und Lernen findet sie nicht von selbst (gemessen am Shapley-Beispiel unten).** Hier A (Zeilenspieler) und B (Spaltenspieler) getrennt; Nullsumme ist der Sonderfall B = 1 − A.")
     bm = _bimatrix(settings.bm, settings.bm_n, settings.game_seed)
     st.dataframe([{"": f"Zeile {i + 1}", **{f"Spalte {j + 1}": f"{de(bm.A[i, j], 2)} | {de(bm.B[i, j], 2)}" for j in range(bm.A.shape[1])}} for i in range(bm.A.shape[0])], hide_index=True, width="stretch")
     st.caption("Jede Zelle: Auszahlung an Zeilenspieler | Auszahlung an Spaltenspieler.")
@@ -349,7 +349,7 @@ with tabs[2]:
                    + f". Regret Matching (Start (0,5; 0,3; 0,2) gegen (0,2; 0,3; 0,5)), 10 000 Runden: Nash-Lücke des Durchschnitts {de(shapley['rm_gap_avg'])}, der letzten Iteration {de(shapley['rm_gap_last'])}.")
         _show(ev.verdict_e4(rows4, nulls, big, shapley))
     st.info("Literatur, nicht nachgemessen und nicht im Volltext gelesen: Das Finden eines Nash-Gleichgewichts in allgemeinen Zwei-Personen-Spielen gilt als PPAD-vollständig (Chen und Deng; Daskalakis, Goldberg, Papadimitriou), und Lemke–Howson braucht im ungünstigsten Fall exponentiell viele Schritte (Savani und von Stengel 2006). "
-            "Die Messreihe oben zeigt das nicht: Sie hat kurze Pfade in Zufallsspielen, und die Familie der schlechten Spiele ist nicht gebaut.")
+            "Die Messreihe oben zeigt das nicht: Sie hat kurze Pfade in Zufallsspielen (zum ungünstigsten Fall ist nichts gemessen), und die Familie der schlechten Spiele ist nicht gebaut.")
 
 st.markdown("---")
 

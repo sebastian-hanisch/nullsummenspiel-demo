@@ -137,7 +137,7 @@ ASSUMPTIONS_MARKDOWN = """
 
 **Grenzen**
 - Die Zahlen der Experimente gelten für die genannten Zufallsfamilien: Einträge gleichverteilt in [0, 1) bzw. Routenwerte gleichverteilt in einem Bereich, jeweils mit festen Zufalls-Seeds. Für andere Familien sind sie nicht gemessen.
-- Es sind drei Zähler (Häufigkeit, Fenster mit 20 Sendungen, Folge) und vier Muster des Verladers gemessen. Dass es vom Zählertyp und von der Gleichstandsregel abhängt, ob ein Muster ausgenutzt wird, gilt für diese Zähler und diese Muster.
+- Es sind drei Zähler (Häufigkeit, Fenster mit 20 Sendungen, Folge) und vier Muster des Verladers gemessen. Dass es vor allem am Zählertyp hängt, ob ein Muster ausgenutzt wird, und dass die Gleichstandsregel nur die Höhe verschiebt, gilt für diese Zähler und diese Muster.
 - Die Aufzählung der Gleichgewichte allgemeiner Spiele geht bis n = 8 Aktionen je Spieler; sie ist für nicht entartete Spiele vollständig. Eine Familie von Spielen, in denen Lemke–Howson lange Pfade braucht, ist nicht gebaut, und die Aussagen „PPAD-vollständig“ und „im ungünstigsten Fall exponentiell“ stehen nur als Literaturzeile.
 - Regret Matching+ (RM+) ist aus dem Gedächtnis umgesetzt und seine Quelle nicht eingesehen. Alle Literaturangaben (Minimax-Satz, Fictitious Play, Regret Matching, Lemke–Howson, Komplexität) sind nicht im Volltext gelesen.
 - Keine Daten echter Verlader, Kontrollen oder Menschenexperimente.
