@@ -158,7 +158,7 @@ MATH_MARKDOWN = r"""
 | $v$ | Wert des Spiels |
 | $v_i$ | Wert der Route $i$ (Verstecken und Suchen); $c$, $k$ Hilfsgrößen der geschlossenen Form |
 | $\varepsilon(x, y)$ | Ausnutzbarkeit eines Strategiepaares |
-| $R_t(i)$, $p_t$ | Bedauern der Aktion $i$ nach Runde $t$, gespielte Mischung der Runde $t$ |
+| $R_t(i)$, $p_t$ | Regret der Aktion $i$ nach Runde $t$, gespielte Mischung der Runde $t$ |
 | $\eta$, $\Delta$, $N$, $T$ | Lernrate, Spannweite der Auszahlungen, Zahl der eigenen Aktionen, Horizont |
 | $B$ | Auszahlungsmatrix des Spaltenspielers (allgemeine Spiele) |
 
@@ -190,7 +190,7 @@ $$ v = (n-1)\,c, \qquad x_i = \frac{c}{v_i}, \qquad y_i = 1 - \frac{v}{v_i} $$
 
 Wird ein $y_i$ negativ, ist die Route zu billig: sie wird weggelassen, kleinster Wert zuerst, und die Formel gilt für die übrigen Routen (**Streichen**). Die beste reine Route garantiert 0, denn der Kontrolleur prüft sie.
 
-**Regret Matching** mit dem Bedauern $R_t(i) = \sum_{s \le t}\big(u_s(i) - \langle p_s, u_s\rangle\big)$ und **RM+** (abgeschnittenes Bedauern, Durchschnitt mit Gewicht $t$):
+**Regret Matching** mit dem Regret $R_t(i) = \sum_{s \le t}\big(u_s(i) - \langle p_s, u_s\rangle\big)$ und **RM+** (abgeschnittener Regret, Durchschnitt mit Gewicht $t$):
 
 $$ p_{t+1}(i) = \frac{\max\big(R_t(i),\, 0\big)}{\sum_k \max\big(R_t(k),\, 0\big)}, \qquad R_t^{+}(i) = \max\big(R_{t-1}^{+}(i) + u_t(i) - \langle p_t, u_t\rangle,\; 0\big) $$
 

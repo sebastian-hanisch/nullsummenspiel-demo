@@ -103,7 +103,7 @@ Die Matrix **A** hat eine Zeile je Route des Verladers und eine Spalte je geprü
 | **Minimax-Satz, Wert des Spiels** | Das beste Garantierte des Verladers und das beste Zugelassene des Kontrolleurs sind gleich: der Wert des Spiels. Beides ist ein lineares Programm, und die beiden Programme sind dual zueinander. |
 | **Indifferenz** | Im Gleichgewicht zahlt jede Route, die der Verlader benutzt, gegen die Strategie des Kontrolleurs gleich viel; deshalb lohnt sich keine Abweichung. |
 | **Ausnutzbarkeit** | Wie viel ein Paar (x, y) von Strategien dem Gegner anbietet: was die beste Antwort auf y dem Verlader bringt, minus was die beste Antwort auf x dem Kontrolleur lässt. Null genau im Gleichgewicht. |
-| **Regret Matching, RM+** | Jede Seite spielt die Aktionen mit positivem Bedauern (was ihr gegenüber der gespielten Mischung entgangen ist) im Verhältnis dieses Bedauerns; RM+ schneidet negatives Bedauern auf null ab und gewichtet den Durchschnitt linear. |
+| **Regret Matching, RM+** | Jede Seite spielt die Aktionen mit positivem Regret (was ihr gegenüber der gespielten Mischung entgangen ist) im Verhältnis dieses Regrets; RM+ schneidet negativen Regret auf null ab und gewichtet den Durchschnitt linear. |
 | **Multiplicative Weights (Hedge)** | Wahrscheinlichkeit proportional zu exp(η · Summe der bisherigen Auszahlungen) mit einer Lernrate η, die vom Horizont abhängt. |
 | **Fictitious Play** | Jede Seite spielt die beste Antwort auf die Häufigkeiten, mit denen der Gegner bisher gespielt hat. |
 | **Durchschnitt, letzte Iteration** | Die Durchschnittsstrategie ist das Mittel aller gespielten Strategien; die letzte Iteration ist die Strategie der Runde t selbst. |
